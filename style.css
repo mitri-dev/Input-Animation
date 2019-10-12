@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: auto;
+    margin-top: 5em;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    font-size: 260%;
+}
+
+/* Form Elements */
+
+.box-name,
+.box-email,
+.box-password {
+    position: relative;
+    background-color: aquamarine;
+    width: 20em;
+    height: 3em;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.box-name input,
+.box-email input,
+.box-password input {
+    width: 100%;
+    height: 100%;
+    padding-top: 1em;
+    color: #3b3b44;
+    border: 0;
+    outline: none;
+    font-size: 1em;
+}
+
+.label-name,
+.label-email,
+.label-password {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #222;
+}
+
+.label-name::after,
+.label-email::after,
+.label-password::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #5fa8d3;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+
+.content-name,
+.content-email,
+.content-password{
+    position: absolute;
+    bottom: 5px;
+    transition: all 0.3s ease
+}
+
+/* We can use plus signs to affect styling on children elements */
+.box-name input:focus + .label-name .content-name,
+.box-name input:valid + .label-name .content-name,
+.box-email input:focus + .label-email .content-email,
+.box-email input:valid + .label-email .content-email,
+.box-password input:focus + .label-password .content-password,
+.box-password input:valid + .label-password .content-password{
+    transform: translateY(-120%);
+    color: #5fa8d3;
+    font-size: 14px;
+}
+
+.box-name input:focus + .label-name::after,
+.box-name input:valid + .label-name::after,
+.box-email input:focus + .label-email::after,
+.box-email input:valid + .label-email::after,
+.box-password input:focus + .label-password::after,
+.box-password input:valid + .label-password::after{
+    transform: translateX(0%);
+    color: #504dff;
+    font-size: 14px;
+}
+
+/* Submit button */
+
+input[type="submit"]{
+    margin: auto;
+    width: 100%;
+    padding: 1em 0;
+    background-color: white;
+    border: 0;
+    border: 1px solid #222;
+    border-radius: 0.2em;
+    font-size: 1em;
+    outline: none;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+input[type="submit"]:active {
+    background-color: #00000010;
+
+}
